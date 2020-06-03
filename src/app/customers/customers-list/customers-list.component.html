@@ -1,0 +1,32 @@
+<filter-input (filter)="filter($event)"></filter-input>
+<br/>
+<br/>
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th (click)="sort('name')">Name</th>
+    <th (click)="sort('city')">City</th>
+    <th (click)="sort('orderTotal')">Order Total</th>
+  </tr>
+  </thead>
+  <tr *ngFor="let customer of customers">
+    <td>
+      <a [routerLink]="['/orders', customer.id]">
+        {{ customer.name | cap }}
+      </a>
+    </td>
+    <td>{{ customer.city }}</td>
+    <td>{{ customer.orderTotal | currency:currencyCode:'symbol' }}</td>
+  </tr>
+  <tr *ngIf="customers.length">
+    <td colspan="2">&nbsp;</td>
+    <td>
+      {{totalOrder | currency:currencyCode:'symbol'}}
+    </td>
+  </tr>
+  <tr *ngIf="!customers.length">
+    <td colspan="4">No customers found</td>
+  </tr>
+</table>
+Number of Customers: {{ customers.length }}
+<br/>

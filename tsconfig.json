@@ -3,6 +3,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
+    "strict": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -17,7 +18,7 @@
     "importHelpers": true,
     "target": "es2015",
     "lib": [
-      "es2018",
+      "es2020",
       "dom"
     ]
   },
